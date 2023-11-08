@@ -181,11 +181,11 @@
                   aria-expanded="false"
                 >
                   <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                    >User</span
+                    ><?= user()->username; ?></span
                   >
                   <img
                     class="img-profile rounded-circle"
-                    src="<?= base_url('assets/img/undraw_profile_1.svg')?>"
+                    src="<?= base_url();?>assets/img/<?= user()->user_image; ?>"
                   />
                 </a>
                 <!-- Dropdown - User Information -->
@@ -472,7 +472,7 @@
             >
               Cancel
             </button>
-            <a class="btn btn-dark" href="../logout.php">Logout</a>
+            <a class="btn btn-dark" href="<?= base_url('logout')?>">Logout</a>
           </div>
         </div>
       </div>
