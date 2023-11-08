@@ -11,17 +11,18 @@ use App\Controllers\Pembeli;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Pembeli::user'); 
 
-$routes->get('/admin', [AdminController::class, 'index']);
-$routes->get('/admin/toko', [AdminController::class, 'toko']);
-$routes->get('/admin/transaksi', [AdminController::class, 'transaksi']);
-$routes->get('/admin/pengembalian', [AdminController::class, 'pengembalian']);
+$routes->get('/admin', [AdminController::class, 'index'], ['filter' => 'role:admin']);
+$routes->get('/admin/index', [AdminController::class, 'index'], ['filter' => 'role:admin']);
+$routes->get('/admin/toko', [AdminController::class, 'toko'], ['filter' => 'role:admin']);
+$routes->get('/admin/transaksi', [AdminController::class, 'transaksi'], ['filter' => 'role:admin']);
+$routes->get('/admin/pengembalian', [AdminController::class, 'pengembalian'], ['filter' => 'role:admin']);
 
 
-$routes->get('/penjual', [PenjualController::class, 'index']);
-$routes->get('/penjual/pesanan', [PenjualController::class, 'pesanan']);
-$routes->get('/penjual/transaksi', [PenjualController::class, 'transaksi']);
+$routes->get('/penjual', [PenjualController::class, 'index'], ['filter' => 'role:seller']);
+$routes->get('/penjual/pesanan', [PenjualController::class, 'pesanan'], ['filter' => 'role:seller']);
+$routes->get('/penjual/transaksi', [PenjualController::class, 'transaksi'], ['filter' => 'role:seller']);
 
 $routes->get('/user', [Pembeli::class, 'user']);
 $routes->get('/user/keranjang', [Pembeli::class, 'keranjang']);
