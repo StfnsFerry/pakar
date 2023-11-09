@@ -10,10 +10,11 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Sneakers Ecommerce User - Dashboard</title>
+    <title>Sneakers Ecommers User - Dashboard</title>
 
     <!-- Custom fonts for this template-->
-  
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 
@@ -24,14 +25,12 @@
 
     <!-- Custom styles for this template-->
     <link href="<?= base_url('assets/css/sb-admin-2.min.css')?>" rel="stylesheet" />
-    <link href="<?=base_url('assets/css/style.css')?>" rel="stylesheet"/>
 
     <link
       href="<?=base_url('assets/vendor/datatables/dataTables.bootstrap4.min.css')?>"
       rel="stylesheet"
     />
 
-    
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   </head>
 
@@ -46,7 +45,7 @@
         <!-- Sidebar - Brand -->
         <a
           class="sidebar-brand d-flex align-items-center justify-content-center"
-          href="<?= base_url('/user')?>"
+          href="<?= base_url('/admin')?>"
         >
           <!-- <div class="sidebar-brand-icon">
             S
@@ -69,9 +68,9 @@
         <hr class="sidebar-divider" />
 
         <!-- Nav Item - Product -->
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="<?= base_url('/user/keranjang')?>">
-            <i class="fas fa-solid fa-store"></i>
+            <i class="fas fa-solid fa-shopping-cart"></i>
             <span>Keranjang</span></a
           >
         </li>
@@ -83,7 +82,7 @@
           >
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="<?= base_url('/user/pengembalian')?>">
             <i class="fas fa-arrow-left"></i>
             <span>Pengembalian</span></a
@@ -237,7 +236,7 @@
             <div
               class="d-sm-flex align-items-center justify-content-between mb-4"
             >
-              <h1 class="h3 mb-0 text-gray-800">Keranjang</h1>
+            <h1 class="h3 mb-0 text-gray-800">Keranjang</h1>
             </div>
             <!-- Content Row -->
             <div class="row">
@@ -274,18 +273,43 @@
             <td>40</td>
             <td>Rp. 2.000.000</td>
             <td>
-              <a class="tombol-merah" href="<?= base_url('user/pembayaran')?>">Hapus</a>
+              <a class="btn btn-danger" href="<?= base_url('user/pembayaran')?>">Hapus</a>
+              <colspan="2"><button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Proses</button>
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>22222</td>
+            <td>Nike</td>
+            <td>2</td>
+            <td>Rp. 180.000</td>
+            <td>40</td>
+            <td>Rp. 360.000</td>
+            <td>
+              <a class="btn btn-danger" href="<?= base_url('user/pembayaran')?>">Hapus</a>
+              <colspan="2"><button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Proses</button>
+            </td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>33333</td>
+            <td>Puma</td>
+            <td>2</td>
+            <td>Rp. 1.000.000</td>
+            <td>40</td>
+            <td>Rp. 2.000.000</td>
+            <td>
+              <a class="btn btn-danger" href="<?= base_url('user/pembayaran')?>">Hapus</a>
+              <colspan="2"><button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Proses</button>
             </td>
         </tr>
      <tr>
        <td colspan="7"><b>TOTAL PEMBAYARAN</b></td>
-       <td colspan="2"><b>Rp. 2.000.000</b></td>
+       <td colspan="2"><b>Rp. 4.360.000</b></td>
      </tr>
      <tr>
-       <td colspan="7">Anda dapat <b>Menghapus</b> barang dalam keranjang jika ada perubahan. jika tidak ada perubahan lagi,
+       <colspan="7">Anda dapat <b>Menghapus</b> barang dalam keranjang jika ada perubahan. jika tidak ada perubahan lagi,
        anda dapat melanjutkan <b>Pemesanan</b> dengan memilih tombol <b>Proses</b>.
-       </td>
-       <td colspan="2"><a class="tombol-biru" href="<?= base_url('user/pembayaran')?>">Proses</a></td>
      </tr>
   </table>
   </div>
@@ -351,7 +375,68 @@
       </div>
     </div>
 
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Pengajuan Pengembalian</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <div class="container mx-auto px-5 mt-1" style="margin-bottom: 100px !important;">
+                <div class="mb-3">
+                <form action="" method="post">
+                    <label class="col-form-label fw-bold text-dark">Deskripsi</label>
+                    <p>NIKE AIR FORCE 1           
+                      <br>Kualitas : premium import vietnam
+                      <br>Material : kulit sintetis (pu)
+                      <br>Inclued : Box - Kaos kaki - Sticker
+                    </p>
+                </div>
+                <div class="mb-3">
+                    <label class="col-form-label fw-bold text-dark">Harga</label>
+                    <p>Rp.180.000</p>
+                </div>
+                <div class="mb-3">
+                    <label class="col-form-label fw-bold text-dark">Stok</label>
+                    <p>100</p>
+                </div>
+                <div class="mb-3">
+                    <label class="col-form-label fw-bold text-dark">Ukuran</label>
+                    <input type="text" class="form-control" id="size" name="size">
+                </div>
+                <div class="mb-3">
+                    <label class="col-form-label fw-bold text-dark">Kuantitas</label>
+                    <input type="text" class="form-control" id="qty" name="qty">
+                </div>
+                <form>
+                <div class="mb-3">
+                    <select class="form-select mb-3" aria-label="Large select example">
+                        <option selected>Jasa Pengiriman</option>
+                        <option value="Barang Tidak Sesuai">J&T</option>
+                        <option value="Barang Belum Diterima">JNE</option>
+                        <option value="Barang Rusak">Sicepat</option>
+                        <option value="Lainnya">Anteraja</option>
+                    </select>
+                </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
+                <button type="submit" class="btn btn-dark">Kirim</button>
+                </form>
+           </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+</div>
+
     <!-- Bootstrap core JavaScript-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
     <script src="<?=base_url('assets/vendor/jquery/jquery.min.js')?>"></script>
     <script src="<?=base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
 

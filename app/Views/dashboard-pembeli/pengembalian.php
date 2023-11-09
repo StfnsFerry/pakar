@@ -70,7 +70,7 @@
         <!-- Nav Item - Product -->
         <li class="nav-item">
           <a class="nav-link" href="<?= base_url('/user/keranjang')?>">
-            <i class="fas fa-solid fa-store"></i>
+            <i class="fas fa-solid fa-shopping-cart"></i>
             <span>Keranjang</span></a
           >
         </li>
@@ -335,26 +335,27 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+            <div class="container mx-auto px-5 mt-1" style="margin-bottom: 100px !important;">
                 <div class="mb-3">
                 <form action="" method="post">
                     <label class="col-form-label fw-bold text-dark">ID Transaksi</label>
-                    <input type="text" id="id_transaksi" name="id_transaksi">
+                    <input type="text" class="form-control" id="id_transaksi" name="id_transaksi">
                 </div>
                 <div class="mb-3">
                     <label class="col-form-label fw-bold text-dark">Nama Pembeli</label>
-                    <input type="text" id="nama" name="nama">
+                    <input type="text" class="form-control" id="nama" name="nama">
                 </div>
                 <div class="mb-3">
                     <label class="col-form-label fw-bold text-dark">Nama Toko</label>
-                    <input type="text" id="nama_toko" name="nama_toko">
+                    <input type="text" class="form-control" id="nama_toko" name="nama_toko">
                 </div>
                 <div class="mb-3">
                     <label class="col-form-label fw-bold text-dark">Nama Barang</label>
-                    <input type="text" id="nama_barang" name="nama_barang">
+                    <input type="text" class="form-control" id="nama_barang" name="nama_barang">
                 </div>
                 <div class="mb-3">
                     <label class="col-form-label fw-bold text-dark">Kuantitas</label>
-                    <input type="text" id="kuantitas" name="kuantitas">
+                    <input type="text" class="form-control" id="kuantitas" name="kuantitas">
                 </div>
                 <form>
                 <div class="mb-3">
@@ -372,10 +373,12 @@
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
                 <button type="submit" class="btn btn-dark">Kirim</button>
                 </form>
-            </div>
-            </div>
+           </div>
         </div>
-    </div>
+      </div>
+    </div> 
+  </div>
+</div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

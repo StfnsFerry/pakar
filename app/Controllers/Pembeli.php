@@ -25,4 +25,9 @@ class Pembeli extends BaseController
     {
         return view('dashboard-pembeli/pengembalian');
     }
+
+    public function profile()
+    {
+        return view('dashboard-pembeli/profile');
+    }
 }
