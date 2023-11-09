@@ -71,7 +71,7 @@
         <!-- Nav Item - Product -->
         <li class="nav-item active">
           <a class="nav-link" href="<?= base_url('/user/keranjang')?>">
-            <i class="fas fa-solid fa-store"></i>
+            <i class="fas fa-solid fa-shopping-cart"></i>
             <span>Keranjang</span></a
           >
         </li>
@@ -270,6 +270,32 @@
         <td>1</td>
         <td>11111</td>
         <td>Adidas</td>
+        <td>Rp. 1.000.000</td>
+        <td>40</td>
+        <td>2</td>
+        <td>03-11-2023</td>
+        <td>Rp. 2.000.000</td>
+        <td>
+          <a class="tombol-biru">Sukses</a>
+        </td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>22222</td>
+        <td>Nike</td>
+        <td>Rp. 1.000.000</td>
+        <td>40</td>
+        <td>2</td>
+        <td>03-11-2023</td>
+        <td>Rp. 2.000.000</td>
+        <td>
+          <a class="tombol-biru">Sukses</a>
+        </td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>33333</td>
+        <td>Puma</td>
         <td>Rp. 1.000.000</td>
         <td>40</td>
         <td>2</td>
