@@ -11,7 +11,11 @@ use App\Controllers\Pembeli;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Pembeli::user'); 
+$routes->get('/', 'Home::index');
+$routes->get('/home','Home::index');
+
+
+//$routes->get('/', 'Pembeli::user'); 
 
 $routes->get('/admin', [AdminController::class, 'index'], ['filter' => 'role:admin']);
 $routes->get('/admin/index', [AdminController::class, 'index'], ['filter' => 'role:admin']);
