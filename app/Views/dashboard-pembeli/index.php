@@ -14,7 +14,7 @@
 
     <!-- Custom fonts for this template-->
   
-
+    <link href="<?= base_url("sb-admin-2/vendor/fontawesome-free/css/all.min.css") ?>" rel="stylesheet" type="text/css">
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 
     <link
@@ -23,8 +23,14 @@
     />
 
     <!-- Custom styles for this template-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="<?= base_url('assets/css/sb-admin-2.min.css')?>" rel="stylesheet" />
     <link href="<?=base_url('assets/css/style.css')?>" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
   </head>
 
   <body id="page-top">
@@ -41,7 +47,7 @@
           href="<?= base_url('/user')?>"
         >
           <!-- <div class="sidebar-brand-icon">
-            S
+            
           </div> -->
           <div class="sidebar-brand-text mx-3">Sneakers Commerce</div>
         </a>
@@ -193,7 +199,7 @@
                   class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                   aria-labelledby="userDropdown"
                 >
-                  <a class="dropdown-item" href="#">
+                  <a class="dropdown-item" href="<?= base_url('/user/profile')?>" >
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Profile
                   </a>
@@ -529,7 +535,7 @@
                                   <td>Nike Air Force</td>  
                                   <td>2</td>   
                                   <td>Barang Tidak Sesuai</td>
-                                  <td><a class="tombol-biru">Selesai</a></td>                                                                                                                               
+                                  <td><a class="btn btn-success text-light">Selesai</a></td>                                                                                                                               
                                 </tr>                                                                               
                             </tbody>
                         </table>

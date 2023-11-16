@@ -32,3 +32,4 @@ $routes->get('/user', [Pembeli::class, 'user']);
 $routes->get('/user/keranjang', [Pembeli::class, 'keranjang']);
 $routes->get('/user/pembelian', [Pembeli::class, 'pemesanan']);
 $routes->get('/user/pengembalian', [Pembeli::class, 'pengembalian']);
+$routes->get('/user/profile', [Pembeli::class, 'profile']);

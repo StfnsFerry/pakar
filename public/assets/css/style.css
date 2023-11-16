@@ -163,3 +163,33 @@ table tr td.list :hover {
 .pesan p {
   color: #fff;
 }
+.profile-card {
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background-color: #fff; /* Warna latar belakang kartu profil */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan kartu profil */
+  border-radius: 10px; /* Sudut bulat kartu profil */
+  padding: 20px;
+  /* text-align: center; */
+}
+.profile-picture {
+    width: 170px;
+    height: 170px;
+    background-color: #ddd; /* Warna latar belakang foto profil */
+    border-radius: 100%;  /*Untuk membuatnya menjadi lingkaran */
+    background-size: cover;
+    margin: 0 auto; 
+    margin-top: 100px;
+    margin-bottom: 20px;
+    line-height: 150px;
+    font-size: 48px; /* Ukuran teks di dalam lingkaran */
+    color: #000; /* Warna teks di dalam lingkaran */
+}
+
+.profile-info {
+    font-size: 18px;
+    color: #333; /* Warna teks informasi */
+    margin-bottom: 10px;
+}
