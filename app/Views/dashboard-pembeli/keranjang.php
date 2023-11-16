@@ -10,13 +10,14 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Sneakers Ecommers User - Dashboard</title>
+    <title>Sneakers Ecommers User - Keranjang</title>
 
     <!-- Custom fonts for this template-->
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="<?= base_url("sb-admin-2/vendor/fontawesome-free/css/all.min.css") ?>" rel="stylesheet" type="text/css">
 
     <link
       href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -32,6 +33,14 @@
     />
 
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="<?= base_url('assets/css/sb-admin-2.min.css')?>" rel="stylesheet" />
+    <link href="<?=base_url('assets/css/style.css')?>" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
   </head>
 
   <body id="page-top">
@@ -188,11 +197,11 @@
                   aria-expanded="false"
                 >
                   <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                    >User</span
+                  ><?= user()->username;?></span
                   >
                   <img
                     class="img-profile rounded-circle"
-                    src="<?= base_url('assets/img/undraw_profile_1.svg')?>"
+                    src="<?= base_url();?>assets/img/<?= user()->user_image;?>"
                   />
                 </a>
                 <!-- Dropdown - User Information -->
@@ -200,7 +209,7 @@
                   class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                   aria-labelledby="userDropdown"
                 >
-                  <a class="dropdown-item" href="#">
+                  <a class="dropdown-item" href="<?= base_url('/user/profile')?>">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Profile
                   </a>
@@ -369,7 +378,7 @@
             >
               Cancel
             </button>
-            <a class="btn btn-dark" href="../logout.php">Logout</a>
+            <a class="btn btn-dark" href="<?= base_url('logout')?>">Logout</a>
           </div>
         </div>
       </div>
@@ -402,11 +411,15 @@
                     <p>100</p>
                 </div>
                 <div class="mb-3">
-                    <label class="col-form-label fw-bold text-dark">Ukuran</label>
+                    <label class="col-form-label fw-bold text-dark">Alamat</label>
                     <input type="text" class="form-control" id="size" name="size">
                 </div>
                 <div class="mb-3">
-                    <label class="col-form-label fw-bold text-dark">Kuantitas</label>
+                    <label class="col-form-label fw-bold text-dark">Pesan</label>
+                    <input type="text" class="form-control" id="qty" name="qty">
+                </div>
+                <div class="mb-3">
+                    <label class="col-form-label fw-bold text-dark">No. Handphone</label>
                     <input type="text" class="form-control" id="qty" name="qty">
                 </div>
                 <form>
