@@ -11,9 +11,9 @@ use App\Controllers\Pembeli;
 /**
  * @var RouteCollection $routes
  */
+
 $routes->get('/', 'Home::index'); 
 $routes->get('/home', 'Home::index');   
-// $routes->get('/', 'Pembeli::user');
 
 $routes->get('/admin', [AdminController::class, 'index'], ['filter' => 'role:admin']);
 $routes->get('/admin/index', [AdminController::class, 'index'], ['filter' => 'role:admin']);
@@ -34,3 +34,4 @@ $routes->get('/user', [Pembeli::class, 'user']);
 $routes->get('/user/keranjang', [Pembeli::class, 'keranjang']);
 $routes->get('/user/pembelian', [Pembeli::class, 'pemesanan']);
 $routes->get('/user/pengembalian', [Pembeli::class, 'pengembalian']);
+$routes->get('/user/profile', [Pembeli::class, 'profile']);

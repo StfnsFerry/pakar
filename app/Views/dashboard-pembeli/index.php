@@ -14,7 +14,7 @@
 
     <!-- Custom fonts for this template-->
   
-
+    <link href="<?= base_url("sb-admin-2/vendor/fontawesome-free/css/all.min.css") ?>" rel="stylesheet" type="text/css">
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 
     <link
@@ -23,8 +23,14 @@
     />
 
     <!-- Custom styles for this template-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="<?= base_url('assets/css/sb-admin-2.min.css')?>" rel="stylesheet" />
     <link href="<?=base_url('assets/css/style.css')?>" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
   </head>
 
   <body id="page-top">
@@ -41,7 +47,7 @@
           href="<?= base_url('/user')?>"
         >
           <!-- <div class="sidebar-brand-icon">
-            S
+            
           </div> -->
           <div class="sidebar-brand-text mx-3">Sneakers Commerce</div>
         </a>
@@ -63,7 +69,7 @@
         <!-- Nav Item - Product -->
         <li class="nav-item">
           <a class="nav-link" href="<?= base_url('/user/keranjang')?>">
-            <i class="fas fa-solid fa-store"></i>
+            <i class="fas fa-solid fa-shopping-cart"></i>
             <span>Keranjang</span></a
           >
         </li>
@@ -181,7 +187,7 @@
                   aria-expanded="false"
                 >
                   <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                    ><?= user()->username; ?></span
+                  ><?= user()->username; ?></span
                   >
                   <img
                     class="img-profile rounded-circle"
@@ -193,7 +199,7 @@
                   class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                   aria-labelledby="userDropdown"
                 >
-                  <a class="dropdown-item" href="#">
+                  <a class="dropdown-item" href="<?= base_url('/user/profile')?>" >
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Profile
                   </a>
@@ -226,196 +232,320 @@
           <!-- Begin Page Content -->
           <div class="container-fluid">
             <!-- Page Heading -->
+            <!-- Page Heading -->
             <div
               class="d-sm-flex align-items-center justify-content-between mb-4"
             >
               <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+              <a
+                href="#"
+                class="d-none d-sm-inline-block btn btn-sm btn-dark shadow-sm"
+                ><i class="fas fa-download fa-sm text-white-50"></i> Generate
+                Report</a
+              >
             </div>
 
             <!-- Content Row -->
-            <div id="box">
-            <table>
-            <tr>
-                <td class="list">
-                <img src="<?= base_url('assets/img/IMPORT_SEPATU_PUMA_SUEDE_ORIGINAL.jpg')?>" width="100">
-                <br>Puma
-                <br><b>Rp.1.000.000</b>
-                <br>
-                <button type="button">Stok : 100</button>
-                <a>Beli</a>
-                </td>
-                <td class="list">
-                <img src="<?= base_url('assets/img/IMPORT_SEPATU_PUMA_SUEDE_ORIGINAL.jpg')?>" width="100">
-                <br>Puma
-                <br><b>Rp.1.000.000</b>
-                <br>
-                <button type="button">Stok : 100</button>
-                <a>Beli</a>
-                </td>
-                <td class="list">
-                <img src="<?= base_url('assets/img/IMPORT_SEPATU_PUMA_SUEDE_ORIGINAL.jpg')?>" width="100">
-                <br>Puma
-                <br><b>Rp.1.000.000</b>
-                <br>
-                <button type="button">Stok : 100</button>
-                <a>Beli</a>
-                </td>
-                <td class="list">
-                <img src="<?= base_url('assets/img/IMPORT_SEPATU_PUMA_SUEDE_ORIGINAL.jpg')?>" width="100">
-                <br>Puma
-                <br><b>Rp.1.000.000</b>
-                <br>
-                <button type="button">Stok : 100</button>
-                <a>Beli</a>
-                </td>
-                <td class="list">
-                <img src="<?= base_url('assets/img/IMPORT_SEPATU_PUMA_SUEDE_ORIGINAL.jpg')?>" width="100">
-                <br>Puma
-                <br><b>Rp.1.000.000</b>
-                <br>
-                <button type="button">Stok : 100</button>
-                <a>Beli</a>
-                </td>
-                <td class="list">
-                <img src="<?= base_url('assets/img/IMPORT_SEPATU_PUMA_SUEDE_ORIGINAL.jpg')?>" width="100">
-                <br>Puma
-                <br><b>Rp.1.000.000</b>
-                <br>
-                <button type="button">Stok : 100</button>
-                <a>Beli</a>
-                </td>
-                <td class="list">
-                <img src="<?= base_url('assets/img/IMPORT_SEPATU_PUMA_SUEDE_ORIGINAL.jpg')?>" width="100">
-                <br>Puma
-                <br><b>Rp.1.000.000</b>
-                <br>
-                <button type="button">Stok : 100</button>
-                <a>Beli</a>
-                </td>
-                </tr>
-            </table>
-            <br>
-            <table>
-            <tr>
-                <td class="list">
-                <img src="<?= base_url('assets/img/Sepatu_Adidas_Superstar_Full_White_Putih_List_Putih_Hitam_Gr.jpg')?>" width="100">
-                <br>Adidas
-                <br><b>Rp.1.000.000</b>
-                <br>
-                <button type="button">Stok : 100</button>
-                <a>Beli</a>
-                </td>
-                <td class="list">
-                <img src="<?= base_url('assets/img/Sepatu_Adidas_Superstar_Full_White_Putih_List_Putih_Hitam_Gr.jpg')?>" width="100">
-                <br>Adidas
-                <br><b>Rp.1.000.000</b>
-                <br>
-                <button type="button">Stok : 100</button>
-                <a>Beli</a>
-                </td>
-                <td class="list">
-                <img src="<?= base_url('assets/img/Sepatu_Adidas_Superstar_Full_White_Putih_List_Putih_Hitam_Gr.jpg')?>" width="100">
-                <br>Adidas
-                <br><b>Rp.1.000.000</b>
-                <br>
-                <button type="button">Stok : 100</button>
-                <a>Beli</a>
-                </td>
-                <td class="list">
-                <img src="<?= base_url('assets/img/Sepatu_Adidas_Superstar_Full_White_Putih_List_Putih_Hitam_Gr.jpg')?>" width="100">
-                <br>Adidas
-                <br><b>Rp.1.000.000</b>
-                <br>
-                <button type="button">Stok : 100</button>
-                <a>Beli</a>
-                </td>
-                <td class="list">
-                <img src="<?= base_url('assets/img/Sepatu_Adidas_Superstar_Full_White_Putih_List_Putih_Hitam_Gr.jpg')?>" width="100">
-                <br>Adidas
-                <br><b>Rp.1.000.000</b>
-                <br>
-                <button type="button">Stok : 100</button>
-                <a>Beli</a>
-                </td>
-                <td class="list">
-                <img src="<?= base_url('assets/img/Sepatu_Adidas_Superstar_Full_White_Putih_List_Putih_Hitam_Gr.jpg')?>" width="100">
-                <br>Adidas
-                <br><b>Rp.1.000.000</b>
-                <br>
-                <button type="button">Stok : 100</button>
-                <a>Beli</a>
-                </td>
-                <td class="list">
-                <img src="<?= base_url('assets/img/Sepatu_Adidas_Superstar_Full_White_Putih_List_Putih_Hitam_Gr.jpg')?>" width="100">
-                <br>Adidas
-                <br><b>Rp.1.000.000</b>
-                <br>
-                <button type="button">Stok : 100</button>
-                <a>Beli</a>
-                </td>
-            </tr>
-            </table>
-            <br>
-            <table>
-            <tr>
-                <td class="list">
-                <img src="<?= base_url('assets/img/Sepatu_Running_Lari_Nike_Downshifter_7_Black_White.jpg')?>" width="100">
-                <br>Nike
-                <br><b>Rp.1.000.000</b>
-                <br>
-                <button type="button">Stok : 100</button>
-                <a>Beli</a>
-                </td>
-                <td class="list">
-                <img src="<?= base_url('assets/img/Sepatu_Running_Lari_Nike_Downshifter_7_Black_White.jpg')?>" width="100">
-                <br>Nike
-                <br><b>Rp.1.000.000</b>
-                <br>
-                <button type="button">Stok : 100</button>
-                <a>Beli</a>
-                </td>
-                <td class="list">
-                <img src="<?= base_url('assets/img/Sepatu_Running_Lari_Nike_Downshifter_7_Black_White.jpg')?>" width="100">
-                <br>Nike
-                <br><b>Rp.1.000.000</b>
-                <br>
-                <button type="button">Stok : 100</button>
-                <a>Beli</a>
-                </td>
-                <td class="list">
-                <img src="<?= base_url('assets/img/Sepatu_Running_Lari_Nike_Downshifter_7_Black_White.jpg')?>" width="100">
-                <br>Nike
-                <br><b>Rp.1.000.000</b>
-                <br>
-                <button type="button">Stok : 100</button>
-                <a>Beli</a>
-                </td>
-                <td class="list">
-                <img src="<?= base_url('assets/img/Sepatu_Running_Lari_Nike_Downshifter_7_Black_White.jpg')?>" width="100">
-                <br>Nike
-                <br><b>Rp.1.000.000</b>
-                <br>
-                <button type="button">Stok : 100</button>
-                <a>Beli</a>
-                </td>
-                <td class="list">
-                <img src="<?= base_url('assets/img/Sepatu_Running_Lari_Nike_Downshifter_7_Black_White.jpg')?>" width="100">
-                <br>Nike
-                <br><b>Rp.1.000.000</b>
-                <br>
-                <button type="button">Stok : 100</button>
-                <a>Beli</a>
-                </td>
-                <td class="list">
-                <img src="<?= base_url('assets/img/Sepatu_Running_Lari_Nike_Downshifter_7_Black_White.jpg')?>" width="100">
-                <br>Nike
-                <br><b>Rp.1.000.000</b>
-                <br>
-                <button type="button">Stok : 100</button>
-                <a>Beli</a>
-                </td>
-            </tr>
-            </table>
+            <div class="row">
+               <!-- Earnings (Monthly) Card Example -->
+               <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-dark shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                      <div
+                          class="text-xs font-weight-bold text-dark text-uppercase mb-1"
+                        >
+                          Barang Dalam Keranjang
+                        </div>
+                       <div class="h5 mb-0 font-weight-bold text-gray-800">3</div>
+                         
+                      </div>
+                      <div class="col-auto">
+                        <i
+                          class="fas fa-solid fa-shopping-cart fa-2x text-gray-300"
+                        ></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Earnings (Monthly) Card Example -->
+              
+
+              <!-- Earnings (Monthly) Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div
+                          class="text-xs font-weight-bold text-success text-uppercase mb-1"
+                        >
+                          Total Transaksi
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">3</div>
+                          
+                      </div>
+                      <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+             
+
+              <!-- Pending Requests Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-warning shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div
+                          class="text-xs font-weight-bold text-warning text-uppercase mb-1"
+                        >
+                          Total Pengembalian
+                        </div>
+                       <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
+                          
+                      </div>
+                      <div class="col-auto">
+                        <i class="fas fa-solid fa-arrow-left fa-2x text-gray-300"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            <!-- Content Row -->
+            <div class="row">   
+              <div class="col-lg-6 mb-4">
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-dark">Barang Dalam Keranjang</h6>
+                        <div class="dropdown no-arrow">
+                          <a
+                            class="dropdown-toggle"
+                            href="#"
+                            role="button"
+                            id="dropdownMenuLink"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                          >
+                            <i
+                              class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"
+                            ></i>
+                          </a>
+                          <div
+                            class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                            aria-labelledby="dropdownMenuLink"
+                          >
+                            <div class="dropdown-header">Pilih:</div>
+                            <a class="dropdown-item" href="<?= base_url('/user/keranjang')?>">Lihat Selengkapnya</a>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table
+                            class="table table-bordered"
+                            id="dataTable"
+                            width="100%"
+                            cellspacing="0"
+                          >
+                            <thead>
+                                <tr>
+                                <th>No</th>
+                                <th>Id Pesanan</th>
+                                <th>Deskripsi</th>
+                                <th>Harga</th>
+                                <th>Ukuran</th>
+                               </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                  <td>1.</td>
+                                  <td>11111</td>
+                                  <td>Adidas</td>
+                                  <td>Rp. 1.000.000</td>
+                                  <td>40</td>                                                                                                                                    
+                                </tr>
+                                <tr>
+                                  <td>2.</td>
+                                  <td>22222</td>
+                                  <td>Nike</td>     
+                                  <td>Rp. 1.000.000</td>
+                                  <td>40</td>                                                                                                                                  
+                                </tr>
+                                <tr>
+                                  <td>3.</td>
+                                  <td>33333</td>
+                                  <td>Puma</td>   
+                                  <td>Rp. 1.000.000</td>
+                                  <td>40</td>                                                                                                                                    
+                                </tr>                                                                                   
+                            </tbody>
+                        </table>
+                      </div>
+                    </div>  
+                </div>
+              </div>
+
+              <div class="col-lg-6 mb-4">
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-dark">Detail Transaksi</h6>
+                        <div class="dropdown no-arrow">
+                          <a
+                            class="dropdown-toggle"
+                            href="#"
+                            role="button"
+                            id="dropdownMenuLink"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                          >
+                            <i
+                              class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"
+                            ></i>
+                          </a>
+                          <div
+                            class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                            aria-labelledby="dropdownMenuLink"
+                          >
+                            <div class="dropdown-header">Pilih:</div>
+                            <a class="dropdown-item" href="<?= base_url('/user/pembelian')?>">Lihat Selengkapnya</a>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table
+                            class="table table-bordered"
+                            id="dataTable"
+                            width="100%"
+                            cellspacing="0"
+                          >
+                            <thead>
+                                <tr>
+                                <th>No</th>
+                                <th>Id Pesanan</th>
+                                <th>Barang</th>
+                                <th>Harga</th>
+                                <th>Ukuran</th>
+                                <th>Kuantitas</th>
+                                <th>Tanggal Transaksi</th>
+                                <th>Total</th>         
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <td>1</td>
+                                <td>11111</td>
+                                <td>Adidas</td>
+                                <td>Rp. 1.000.000</td>
+                                <td>40</td>
+                                <td>2</td>
+                                <td>03-11-2023</td>
+                                <td>Rp. 2.000.000</td>                                                                                                                              
+                                </tr>
+                                <tr>
+                                <td>2</td>
+                                <td>22222</td>
+                                <td>Nike</td>
+                                <td>Rp. 1.000.000</td>
+                                <td>40</td>
+                                <td>2</td>
+                                <td>03-11-2023</td>
+                                <td>Rp. 2.000.000</td>                                                                                                                                    
+                                </tr>
+                                <tr>
+                                <td>3</td>
+                                <td>33333</td>
+                                <td>Puma</td>
+                                <td>Rp. 1.000.000</td>
+                                <td>40</td>
+                                <td>2</td>
+                                <td>03-11-2023</td>
+                                <td>Rp. 2.000.000</td>                                                                                                                                      
+                                </tr>                                                                                   
+                            </tbody>
+                        </table>
+                      </div>
+                    </div>  
+                </div>
+              </div>
+            </div>
+
+            <div class="row">               
+              <div class="col-lg-12 mb-4">
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-dark">Detail Pengembalian</h6>
+                        <div class="dropdown no-arrow">
+                          <a
+                            class="dropdown-toggle"
+                            href="#"
+                            role="button"
+                            id="dropdownMenuLink"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                          >
+                            <i
+                              class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"
+                            ></i>
+                          </a>
+                          <div
+                            class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                            aria-labelledby="dropdownMenuLink"
+                          >
+                            <div class="dropdown-header">Pilih:</div>
+                            <a class="dropdown-item" href="<?= base_url('/user/pengembalian')?>">Lihat Selengkapnya</a>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table
+                            class="table table-bordered"
+                            id="dataTable"
+                            width="100%"
+                            cellspacing="0"
+                          >
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>ID Transaksi</th>  
+                                    <th>Nama Toko</th>
+                                    <th>Nama Barang</th> 
+                                    <th>Kuantitas</th>
+                                    <th>Jenis Pengembalian</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                  <td>1.</td>
+                                  <td>11111</td>
+                                  <td>PVN Official Store</td>   
+                                  <td>Nike Air Force</td>  
+                                  <td>2</td>   
+                                  <td>Barang Tidak Sesuai</td>
+                                  <td><a class="btn btn-success text-light">Selesai</a></td>                                                                                                                               
+                                </tr>                                                                               
+                            </tbody>
+                        </table>
+                      </div>
+                    </div>  
+                </div>
+              </div>
+            </div>
+
+    
           <!-- /.container-fluid -->
         </div>
         <!-- End of Main Content -->
