@@ -147,11 +147,10 @@ body {
   margin-bottom: 30px;
 }
 
-.home-img {
-  background-image: url(img/homebg.png);
+/* .home-img {
   background-repeat: no-repeat;
   background-size: cover;
-}
+} */
 
 .home-img img {
   height: 650px;
@@ -241,9 +240,9 @@ body {
 
 .exp-pict {
   height: 420px;
-  background-image: url(img/exp-img.png);
+  /* background-image: url(img/exp-img.png);
   background-size: cover;
-  background-position: center;
+  background-position: center; */
 }
 
 .explore .btn-outline-dark {

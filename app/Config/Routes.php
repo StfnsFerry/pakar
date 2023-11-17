@@ -11,7 +11,9 @@ use App\Controllers\Pembeli;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Pembeli::user'); 
+$routes->get('/', 'Home::index'); 
+$routes->get('/home', 'Home::index');   
+// $routes->get('/', 'Pembeli::user');
 
 $routes->get('/admin', [AdminController::class, 'index'], ['filter' => 'role:admin']);
 $routes->get('/admin/index', [AdminController::class, 'index'], ['filter' => 'role:admin']);
@@ -20,9 +22,13 @@ $routes->get('/admin/transaksi', [AdminController::class, 'transaksi'], ['filter
 $routes->get('/admin/pengembalian', [AdminController::class, 'pengembalian'], ['filter' => 'role:admin']);
 
 
-$routes->get('/penjual', [PenjualController::class, 'index'], ['filter' => 'role:seller']);
-$routes->get('/penjual/pesanan', [PenjualController::class, 'pesanan'], ['filter' => 'role:seller']);
-$routes->get('/penjual/transaksi', [PenjualController::class, 'transaksi'], ['filter' => 'role:seller']);
+$routes->get('/penjual', [PenjualController::class, 'index']);
+$routes->get('/penjual/pesanan', [PenjualController::class, 'pesanan']);
+$routes->get('/penjual/produk', [PenjualController::class, 'produk']);
+$routes->get('/penjual/transaksi', [PenjualController::class, 'transaksi']);
+$routes->post('/penjual/create', [PenjualController::class, 'create']);
+$routes->put('/penjual/(:any)', [PenjualController::class, 'update']);
+$routes->delete('/penjual/(:any)', [PenjualController::class, 'destroy']);
 
 $routes->get('/user', [Pembeli::class, 'user']);
 $routes->get('/user/keranjang', [Pembeli::class, 'keranjang']);
