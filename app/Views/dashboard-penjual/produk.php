@@ -23,6 +23,7 @@
     />
 
     <!-- Custom styles for this template-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="<?= base_url('assets/css/sb-admin-2.min.css')?>" rel="stylesheet" />
 
     <link
@@ -71,15 +72,15 @@
         <div class="sidebar-heading">Manage</div>
 
         <!-- Nav Item - Product -->
-        <li class="nav-item  active">
+        <li class="nav-item">
           <a class="nav-link" href="<?= base_url('/penjual/pesanan')?>">
           <i class="fas fa-solid fa-store"></i>
             <span>Pesanan</span></a
           >
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="<?= base_url('/penjual/produk')?>">
+        <li class="nav-item active">
+          <a class="nav-link" href="<?= base_url('/penjualan/produk')?>">
           <i class="fas fa-solid fa-box"></i>
             <span>Produk</span></a
           >
@@ -195,7 +196,7 @@
                   >
                   <img
                     class="img-profile rounded-circle"
-                    src="<?= base_url('assets/img/undraw_profile.svg')?>"
+                    src="<?= base_url('assets/img/default.svg')?>"
                   />
                 </a>
                 <!-- Dropdown - User Information -->
@@ -239,7 +240,7 @@
             <div
               class="d-sm-flex align-items-center justify-content-between mb-4"
             >
-              <h1 class="h3 mb-0 text-gray-800">List Pesanan Customer</h1>
+              <h1 class="h3 mb-0 text-gray-800">Data Produk</h1>
               <a
                 href="#"
                 class="d-none d-sm-inline-block btn btn-sm btn-dark shadow-sm"
@@ -253,7 +254,10 @@
             <div class="col-lg-12 mb-4">
             <div class="card shadow mb-4">
               <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-dark">Detail Pesanan</h6>
+                    <h6 class="m-0 font-weight-bold text-dark">Detail Produk</h6>
+                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#tambahProduk">
+                    + Tambah Produk
+                    </button>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -263,55 +267,94 @@
                         width="100%"
                         cellspacing="0"
                       >
-                      <thead>
-                                <tr>
-                                    <th>No.</th>
-                                    <th>ID Pesanan</th>
-                                    <th>ID Toko</th>
-                                    <th>Nama Barang</th>
-                                    <th>Jumlah Pesanan</th>
-                                    <th>Harga Satuan</th>
-                                    <th>Total</th>   
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                  <td>1.</td>
-                                  <td>001</td>
-                                  <td>1</td>
-                                  <td>Nike Air Jordan</td>  
-                                  <td>1</td>     
-                                  <td>Rp. 300.000</td>   
-                                  <td>Rp. 300.000</td>                                                                                                                    
-                                </tr>
-                                <tr>
-                                  <td>2.</td>
-                                  <td>002</td>
-                                  <td>2</td>
-                                  <td>Adidas Super 100</td>    
-                                  <td>1</td>     
-                                  <td>Rp. 500.000</td>   
-                                  <td>Rp. 500.000</td>                                                                                                                                   
-                                </tr>
-                                <tr>
-                                  <td>3.</td>
-                                  <td>003</td>
-                                  <td>3</td>
-                                  <td>Converse All Star</td>    
-                                  <td>2</td>     
-                                  <td>Rp. 500.000</td>   
-                                  <td>Rp. 1.000.000</td>                                                                                                                                    
-                                </tr>       
-                                <tr>
-                                  <td>3.</td>
-                                  <td>004</td>
-                                  <td>4</td>
-                                  <td>Vans</td>    
-                                  <td>1</td>     
-                                  <td>Rp. 180.000</td>   
-                                  <td>Rp. 180.000</td>                                                                                                                                    
-                                </tr>                                                                                   
-                            </tbody>
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Foto</th>
+                                <th>Nama Produk</th>
+                                <th>Deskripsi</th>
+                                <th>Harga</th>
+                                <th>Stok</th>
+                                <th>Aksi</th>   
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                            $no = 1;
+                            foreach($produk as $produk){
+                            ?>
+                            <tr>
+                                <td><?= $no++ ?></td>
+                                <td><img src="<?= $produk['foto']?>" width="50"></td>
+                                <td><?= $produk['nama_produk']?></td>
+                                <td><?= substr($produk['deskripsi'],0,60)?>...</td>  
+                                <td>Rp<?= $produk['harga']?></td>     
+                                <td><?= $produk['stok']?></td>   
+                                <td>
+                                    <div class="wrap d-flex justify-content-center align-items-center">
+                                        <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#editProduk<?= $produk['id']?>">
+                                        Edit
+                                        </button>
+                                        <form action="<?= base_url('penjual/' . $produk['id']) ?>" method="POST">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <?= csrf_field() ?>
+                                            <button class="btn btn-danger">
+                                                <i class="fas fa-trash" aria-hidden="true"></i>
+                                            </button>
+                                        </form> 
+        
+                                    </div>
+                                </td>                                                                                                                    
+                            </tr>
+
+                            <!-- Modal edit produk -->
+                            <div class="modal fade" id="editProduk<?=$produk['id']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Produk</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="<?=base_url('/penjual/' . $produk['id'])?>" method="POST" enctype="multipart/form-data">
+                                                <?= csrf_field() ?>
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Nama Produk</label>
+                                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="nama_produk" value="<?=$produk['nama_produk']?>">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlTextarea1" class="form-label">Deskripsi</label>
+                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="deskripsi"><?=$produk['deskripsi']?></textarea>
+                                                </div>
+                                                <label class="form-label">Harga</label>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text">Rp</span>
+                                                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="harga" value="<?=$produk['harga']?>">
+                                                    <span class="input-group-text">.00</span>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="stok" class="form-label">Stok</label>
+                                                    <input type="number" class="form-control" id="stok" name="stok" value="<?=$produk['stok']?>">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="formFile" class="form-label">Foto</label> <br>
+                                                    <img src="<?=$produk['foto']?>" width="100" class="mb-3">
+                                                    <input class="form-control" type="file" id="formFile" name="foto">
+                                                </div>
+                                                <input type="hidden" name="_method" value="PUT">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Tambah Produk</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
+                            }
+                            ?>                                                                                                               
+                        </tbody>
                     </table>
                   </div>
                 </div>  
@@ -380,7 +423,53 @@
       </div>
     </div>
 
+    <!-- Modal tambah data-->
+    <div class="modal fade" id="tambahProduk" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Produk</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="<?=base_url('/penjual/create')?>" method="POST" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Nama Produk</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1" name="nama_produk">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Deskripsi</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="deskripsi"></textarea>
+                        </div>
+                        <label class="form-label">Harga</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Rp</span>
+                            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="harga">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="stok" class="form-label">Stok</label>
+                            <input type="number" class="form-control" id="stok" name="stok">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Foto</label>
+                            <input class="form-control" type="file" id="formFile" name="foto">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Tambah Produk</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap core JavaScript-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
     <script src="<?=base_url('assets/vendor/jquery/jquery.min.js')?>"></script>
     <script src="<?=base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
 
