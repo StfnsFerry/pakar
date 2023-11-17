@@ -15,7 +15,7 @@
               <div class="price">
                 <h3>$ 199.00</h3>
               </div>
-              <a href="shop.php">
+              <a href="<?=base_url('/shop')?>">
                 <button type="button" class="btn btn-outline-dark">
                   Shop Now
                 </button>
@@ -53,7 +53,7 @@
                 Design for the way you live your life. Atoms are beautiful in<br />
                 their simplicity, supporting your feet with absolute comfort.
               </p>
-              <a href="">
+              <a href="<?=base_url('/shop')?>">
                 <button type="button" class="btn btn-outline-dark">
                   Explore More <i class="bx bx-chevron-right mb-0 ms-1"></i>
                 </button>
@@ -119,7 +119,7 @@
               <i class="bx bx-shopping-bag add-cart"></i>
             </div>
         </div>
-        <a href="">
+        <a href="<?= base_url('/newarrival')?>">
           <button type="button" class="btn btn-outline-dark">
             See More <i class="bx bx-chevron-right mb-0 ms-1"></i>
           </button>
