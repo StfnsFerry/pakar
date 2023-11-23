@@ -16,7 +16,8 @@ $routes->get('/', 'Home::index');
 $routes->get('/home', 'Home::index');
 $routes->get('/newarrival', 'Home::newarrival');   
 $routes->get('/shop', 'Home::shop');   
-$routes->get('/collection', 'Home::collection');      
+$routes->get('/collection', 'Home::collection');     
+ 
 
 
 $routes->get('/admin', [AdminController::class, 'index'], ['filter' => 'role:admin']);
@@ -26,16 +27,16 @@ $routes->get('/admin/transaksi', [AdminController::class, 'transaksi'], ['filter
 $routes->get('/admin/pengembalian', [AdminController::class, 'pengembalian'], ['filter' => 'role:admin']);
 
 
-$routes->get('/penjual', [PenjualController::class, 'index']);
-$routes->get('/penjual/pesanan', [PenjualController::class, 'pesanan']);
-$routes->get('/penjual/produk', [PenjualController::class, 'produk']);
-$routes->get('/penjual/transaksi', [PenjualController::class, 'transaksi']);
-$routes->post('/penjual/create', [PenjualController::class, 'create']);
-$routes->put('/penjual/(:any)', [PenjualController::class, 'update']);
-$routes->delete('/penjual/(:any)', [PenjualController::class, 'destroy']);
+$routes->get('/penjual', [PenjualController::class, 'index'], ['filter' => 'role:seller']);
+$routes->get('/penjual/pesanan', [PenjualController::class, 'pesanan'], ['filter' => 'role:seller']);
+$routes->get('/penjual/produk', [PenjualController::class, 'produk'], ['filter' => 'role:seller']);
+$routes->get('/penjual/transaksi', [PenjualController::class, 'transaksi'], ['filter' => 'role:seller']);
+$routes->post('/penjual/create', [PenjualController::class, 'create'], ['filter' => 'role:seller']);
+$routes->put('/penjual/(:any)', [PenjualController::class, 'update'], ['filter' => 'role:seller']);
+$routes->delete('/penjual/(:any)', [PenjualController::class, 'destroy'], ['filter' => 'role:seller']);
 
-$routes->get('/user', [Pembeli::class, 'user']);
-$routes->get('/user/keranjang', [Pembeli::class, 'keranjang']);
-$routes->get('/user/pembelian', [Pembeli::class, 'pemesanan']);
-$routes->get('/user/pengembalian', [Pembeli::class, 'pengembalian']);
-$routes->get('/user/profile', [Pembeli::class, 'profile']);
+$routes->get('/user', [Pembeli::class, 'user'], ['filter' => 'role:user']);
+$routes->get('/user/keranjang', [Pembeli::class, 'keranjang'], ['filter' => 'role:user']);
+$routes->get('/user/pembelian', [Pembeli::class, 'pemesanan'], ['filter' => 'role:user']);
+$routes->get('/user/pengembalian', [Pembeli::class, 'pengembalian'], ['filter' => 'role:user']);
+$routes->get('/user/profile', [Pembeli::class, 'profile'], ['filter' => 'role:user']);

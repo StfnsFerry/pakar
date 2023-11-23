@@ -16,6 +16,11 @@ class CreateProdukTabel extends Migration
                     'unsigned'       => true,
                     'auto_increment' => true,
                 ],
+                'id_toko' => [
+                    'type'           => 'INT',
+                    'constraint'     => 11,
+                    'unsigned'       => true,
+                ],
                 'nama_produk' => [
                     'type'          => 'VARCHAR',
                     'constraint'    => '255',
@@ -52,6 +57,7 @@ class CreateProdukTabel extends Migration
             ]
         );
         $this->forge->addKey('id', true, true);
+        $this->forge->addForeignKey('id_toko','users','id');
         $this->forge->createTable('produk', true);
     }
 

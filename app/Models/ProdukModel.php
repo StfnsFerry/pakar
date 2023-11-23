@@ -13,7 +13,7 @@ class ProdukModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama_produk', 'deskripsi', 'harga', 'stok','foto'];
+    protected $allowedFields    = ['id_toko','nama_produk', 'deskripsi', 'harga', 'stok','foto'];
 
     // Dates
     protected $useTimestamps = true;
@@ -44,12 +44,25 @@ class ProdukModel extends Model
         $this->insert($data);
     }
 
+    public function getAllProduk($id = null){
+        if($id != null){
+            return $this->select('produk.*')->find($id);
+        }    
+        return $this->select('produk.*')->findAll();
+    }
+
+    public function getRandProduk(){ 
+        return $this->select('produk.*')->orderBy('RAND()')->limit(4)->find();
+    }
+
     public function getProduk($id = null)
     {
         if($id != null){
             return $this->select('produk.*')->find($id);
         }
-        return $this->select('produk.*')->findAll();
+        
+        $user_id = user()->id;
+        return $this->select('produk.*')->where('produk.id_toko',$user_id)->findAll();
     }
 
     public function updateProduk($data, $id){

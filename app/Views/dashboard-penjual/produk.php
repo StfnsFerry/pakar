@@ -10,11 +10,10 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Hachi Admin - Dashboard</title>
+    <title>Sneakers Seller - Product</title>
 
     <!-- Custom fonts for this template-->
   
-
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 
     <link
@@ -51,14 +50,14 @@
           <!-- <div class="sidebar-brand-icon">
             S
           </div> -->
-          <div class="sidebar-brand-text mx-3">Sneakers Admin</div>
+          <div class="sidebar-brand-text mx-3">Sneakers Seller</div>
         </a>
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0" />
 
-<!-- Nav Item - Dashboard -->
-<li class="nav-item">
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item">
           <a class="nav-link" href="<?= base_url('/penjual')?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a
@@ -80,7 +79,7 @@
         </li>
 
         <li class="nav-item active">
-          <a class="nav-link" href="<?= base_url('/penjualan/produk')?>">
+          <a class="nav-link" href="<?= base_url('/penjual/produk')?>">
           <i class="fas fa-solid fa-box"></i>
             <span>Produk</span></a
           >
@@ -192,7 +191,7 @@
                   aria-expanded="false"
                 >
                   <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                    >Admin</span
+                    ><?= user()->username;?></span
                   >
                   <img
                     class="img-profile rounded-circle"
@@ -288,7 +287,7 @@
                                 <td><img src="<?= $produk['foto']?>" width="50"></td>
                                 <td><?= $produk['nama_produk']?></td>
                                 <td><?= substr($produk['deskripsi'],0,60)?>...</td>  
-                                <td>Rp<?= $produk['harga']?></td>     
+                                <td>Rp <?= number_format($produk['harga'],0,',','.');?></td>     
                                 <td><?= $produk['stok']?></td>   
                                 <td>
                                     <div class="wrap d-flex justify-content-center align-items-center">
@@ -417,7 +416,7 @@
             >
               Cancel
             </button>
-            <a class="btn btn-dark" href="../logout.php">Logout</a>
+            <a class="btn btn-dark" href="<?=base_url('logout')?>">Logout</a>
           </div>
         </div>
       </div>
@@ -455,6 +454,7 @@
                             <label for="formFile" class="form-label">Foto</label>
                             <input class="form-control" type="file" id="formFile" name="foto">
                         </div>
+                        <input type="hidden" name="id_toko" value="<?=$user_id;?>">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

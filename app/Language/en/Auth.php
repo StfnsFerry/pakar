@@ -89,6 +89,7 @@ return [
     'emailOrUsername'           => 'Email or username',
     'username'                  => 'Username',
     'register'                  => 'Register',
+    'registerSeller'            => 'Become a Seller',
     'signIn'                    => 'Sign In',
     'alreadyRegistered'         => 'Already registered?',
     'weNeverShare'              => 'We\'ll never share your email with anyone else.',

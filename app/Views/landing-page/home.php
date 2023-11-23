@@ -71,53 +71,22 @@
             <p>Step into style with our newest shoe arrivals.</p>
           </div>
           <div class="shop-content">
-            <div class="product-box" id="box_">
-              <a href="detail_produk.php?id=">
+            <?php foreach( $produk as $produk){
+            ?>
+            <div class="product-box" id="box_<?= $produk['id']?>">
+              <a href="">
                 <img
-                  src="<?=base_url('assets/img/Air Jordan 1 Mid SE Craft.jpg')?>"
+                  src="<?= $produk['foto']?>"
                   class="product-img"
                 />
               </a>
-              <h2 class="product-title">Air Jordan 1 Mid SE Craft</h2>
-              <span class="price">$199</span>
+              <h2 class="product-title"><?= $produk['nama_produk']?></h2>
+              <span class="price">Rp <?= number_format($produk['harga'],0,',','.')?></span>
               <i class="bx bx-shopping-bag add-cart"></i>
             </div>
-
-            <div class="product-box" id="box_">
-              <a href="detail_produk.php?id=">
-                <img
-                  src="<?=base_url('assets/img/Air Jordan 1 Mid.jpg')?>"
-                  class="product-img"
-                />
-              </a>
-              <h2 class="product-title">Air Jordan 1 Mid</h2>
-              <span class="price">$149</span>
-              <i class="bx bx-shopping-bag add-cart"></i>
-            </div>
-
-            <div class="product-box" id="box_">
-              <a href="detail_produk.php?id=">
-                <img
-                  src="<?=base_url('assets/img/Nike Air Force 1 Mid 07.jpg')?>"
-                  class="product-img"
-                />
-              </a>
-              <h2 class="product-title">Nike Air Force 1 Mid 07</h2>
-              <span class="price">$299</span>
-              <i class="bx bx-shopping-bag add-cart"></i>
-            </div>
-
-            <div class="product-box" id="box_">
-              <a href="detail_produk.php?id=">
-                <img
-                  src="<?=base_url('assets/img/Nike Gripknit Phantom GX Elite Fusion FG.jpg')?>"
-                  class="product-img"
-                />
-              </a>
-              <h2 class="product-title">Nike Gripknit Phantom GX Elite Fusion FG</h2>
-              <span class="price">$499</span>
-              <i class="bx bx-shopping-bag add-cart"></i>
-            </div>
+              <?php
+              }
+            ?>
         </div>
         <a href="<?= base_url('/newarrival')?>">
           <button type="button" class="btn btn-outline-dark">
@@ -126,5 +95,4 @@
         </a>
       </div>
     </section>
-
-<?= $this->endSection();?>
+   <?= $this->endSection();?>
