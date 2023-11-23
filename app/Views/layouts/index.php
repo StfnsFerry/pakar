@@ -6,12 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sneakers e-Commerce</title>
     <link rel="stylesheet" href="<?= base_url('assets/css/sneakers.css')?>" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link
       rel="stylesheet"
       href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
@@ -39,7 +34,33 @@
       <div class="nav-icon">
         <a href=""><i class="bx bx-search"></i></a>
         <a href=""><i class="bx bx-cart"></i></a>
-        <a href=""><i class="bx bx-user"></i></a>
+        <div class="dropdown no-arrow">
+          <a
+            href="#"
+            role="button"
+            id="dropdownMenuLink"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <p class="sort mb-0">
+              <i class="bx bx-user"></i>
+            </p>
+          </a>
+          <div
+            class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+            aria-labelledby="dropdownMenuLink"
+          >
+            <div class="dropdown-header">Pilih:</div>
+            <?php if (logged_in()) : ?>
+              <a class="dropdown-item" href="">Profile</a>
+              <li><hr class="dropdown-divider"></li>
+              <a class="dropdown-item" href="/logout">Logout</a>  
+            <?php else : ?>
+              <a class="dropdown-item" href="/login">Login</a> 
+            <?php endif; ?>     
+          </div>
+        </div>   
       </div>
     </header>
      
@@ -73,21 +94,8 @@
         </div>
       </div>
     </section>
-    <script src="<?= base_url('assets/js/script.js')?>"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
-      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
-      crossorigin="anonymous"
-    ></script>
+    <script src="<?=base_url('assets/vendor/jquery/jquery.min.js')?>"></script>
+    <script src="<?=base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
+    <script src="<?= base_url('assets/js/script.js')?>"></script>  
   </body>
 </html>

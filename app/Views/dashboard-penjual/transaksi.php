@@ -10,7 +10,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Hachi Admin - Dashboard</title>
+    <title>Sneakers Seller - Transaksi</title>
 
     <!-- Custom fonts for this template-->
   
@@ -50,14 +50,14 @@
           <!-- <div class="sidebar-brand-icon">
             S
           </div> -->
-          <div class="sidebar-brand-text mx-3">Sneakers Admin</div>
+          <div class="sidebar-brand-text mx-3">Sneakers Seller</div>
         </a>
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0" />
 
-<!-- Nav Item - Dashboard -->
-<li class="nav-item active">
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item">
           <a class="nav-link" href="<?= base_url('/penjual')?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a
@@ -79,13 +79,13 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="<?= base_url('/penjualan/produk')?>">
+          <a class="nav-link" href="<?= base_url('/penjual/produk')?>">
           <i class="fas fa-solid fa-box"></i>
             <span>Produk</span></a
           >
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="<?= base_url('/penjual/transaksi')?>">
             <i class="fas fa-dollar-sign"></i>
             <span>Transaksi</span></a
@@ -191,11 +191,11 @@
                   aria-expanded="false"
                 >
                   <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                    >Admin</span
+                    ><?= user()->username;?></span
                   >
                   <img
                     class="img-profile rounded-circle"
-                    src="<?= base_url('assets/img/undraw_profile.svg')?>"
+                    src="<?= base_url('assets/img/default.svg')?>"
                   />
                 </a>
                 <!-- Dropdown - User Information -->
@@ -390,7 +390,7 @@
             >
               Cancel
             </button>
-            <a class="btn btn-dark" href="../logout.php">Logout</a>
+            <a class="btn btn-dark" href="<?=base_url('logout')?>">Logout</a>
           </div>
         </div>
       </div>

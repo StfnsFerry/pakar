@@ -6,7 +6,7 @@
         <h2 class="logo">Sneakers e-Commerce</h2>
 
         <div class="text-sci">
-          <h2>Greetings,<br /><span>Shoe Enthusiasts!</span></h2>
+          <h2>Become<br /><span>a Seller</span></h2>
           <p>
             Start exploring today and find the shoes that will make you feel<br />
             confident, and ready to conquer the world.
@@ -20,7 +20,7 @@
       </div>
       <div class="logreg-box">
         <div class="form-box login">
-        <form action="<?= url_to('register') ?>" method="post" class="user">
+        <form action="<?= url_to('registerSeller') ?>" method="post" class="user">
             <?= csrf_field() ?>
             <h2><?=lang('Auth.register')?></h2>
 
@@ -56,7 +56,6 @@
               <p>
               <?=lang('Auth.alreadyRegistered')?> <a href="<?= url_to('login') ?>"><?=lang('Auth.signIn')?></a>
               </p>
-              <p><a href="<?= base_url('registerSeller') ?>"> <?=lang('Auth.registerSeller')?></a></p>
             </div>
           </form>
         </div>
