@@ -213,14 +213,6 @@
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Profile
                   </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Settings
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Activity Log
-                  </a>
                   <div class="dropdown-divider"></div>
                   <a
                     class="dropdown-item"
@@ -266,11 +258,11 @@
     <tr>
       <th>No</th>
       <th>Id Pesanan</th>
-      <th>Barang</th>
+      <th>Nama Produk</th>
       <th>Harga</th>
       <th>Ukuran</th>
       <th>Kuantitas</th>
-      <th>Tanggal Masuk</th>
+      <th>Tanggal Transaksi</th>
       <th>Total</th>
       <th>Status</th>
     </tr>

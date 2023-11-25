@@ -213,14 +213,6 @@
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Profile
                   </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Settings
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Activity Log
-                  </a>
                   <div class="dropdown-divider"></div>
                   <a
                     class="dropdown-item"
@@ -266,21 +258,17 @@
     <tr>
       <th>No</th>
       <th>Id Pesanan</th>
-      <th>Deskripsi</th>
-      <th>Kuantitas</th>
+      <th>Nama Produk</th>
       <th>Harga</th>
       <th>Ukuran</th>
-      <th>Total</th>
       <th>Aksi</th>
     </tr>
         <tr>
             <td>1</td>
             <td>11111</td>
-            <td>Adidas</td>
-            <td>2</td>
+            <td>Nike</td>
             <td>Rp. 1.000.000</td>
             <td>40</td>
-            <td>Rp. 2.000.000</td>
             <td>
               <a class="btn btn-danger" href="<?= base_url('user/pembayaran')?>">Hapus</a>
               <colspan="2"><button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Proses</button>
@@ -289,11 +277,9 @@
         <tr>
             <td>2</td>
             <td>22222</td>
-            <td>Nike</td>
-            <td>2</td>
+            <td>Adidas</td>
             <td>Rp. 180.000</td>
             <td>40</td>
-            <td>Rp. 360.000</td>
             <td>
               <a class="btn btn-danger" href="<?= base_url('user/pembayaran')?>">Hapus</a>
               <colspan="2"><button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Proses</button>
@@ -303,19 +289,13 @@
             <td>3</td>
             <td>33333</td>
             <td>Puma</td>
-            <td>2</td>
             <td>Rp. 1.000.000</td>
             <td>40</td>
-            <td>Rp. 2.000.000</td>
             <td>
               <a class="btn btn-danger" href="<?= base_url('user/pembayaran')?>">Hapus</a>
               <colspan="2"><button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Proses</button>
             </td>
         </tr>
-     <tr>
-       <td colspan="7"><b>TOTAL PEMBAYARAN</b></td>
-       <td colspan="2"><b>Rp. 4.360.000</b></td>
-     </tr>
      <tr>
        <colspan="7">Anda dapat <b>Menghapus</b> barang dalam keranjang jika ada perubahan. jika tidak ada perubahan lagi,
        anda dapat melanjutkan <b>Pemesanan</b> dengan memilih tombol <b>Proses</b>.
@@ -395,32 +375,37 @@
             <div class="container mx-auto px-5 mt-1" style="margin-bottom: 100px !important;">
                 <div class="mb-3">
                 <form action="" method="post">
+                <?php foreach($produk as $produk){ ?>
+                <div class="mb-3">
+                    <label class="col-form-label fw-bold text-dark">Nama Produk</label>
+                    <p><?= $produk['nama_produk']?></p>
+                </div>
                     <label class="col-form-label fw-bold text-dark">Deskripsi</label>
-                    <p>NIKE AIR FORCE 1           
-                      <br>Kualitas : premium import vietnam
-                      <br>Material : kulit sintetis (pu)
-                      <br>Inclued : Box - Kaos kaki - Sticker
-                    </p>
+                    <p><?= substr($produk['deskripsi'],0,60)?>...</p>
                 </div>
                 <div class="mb-3">
                     <label class="col-form-label fw-bold text-dark">Harga</label>
-                    <p>Rp.180.000</p>
+                    <p>Rp <?= number_format($produk['harga'],0,',','.');?></p>
                 </div>
                 <div class="mb-3">
                     <label class="col-form-label fw-bold text-dark">Stok</label>
-                    <p>100</p>
+                    <p><?= $produk['stok']?></p>
+                </div>
+                <div class="mb-3">
+                    <label class="col-form-label fw-bold text-dark">Kuantitas</label>
+                <input type="number" min="0" class="form-control" id="qty" name="qty" value="">
                 </div>
                 <div class="mb-3">
                     <label class="col-form-label fw-bold text-dark">Alamat</label>
-                    <input type="text" class="form-control" id="size" name="size">
+                    <input type="text" class="form-control" id="alamat" name="alamat">
                 </div>
                 <div class="mb-3">
                     <label class="col-form-label fw-bold text-dark">Pesan</label>
-                    <input type="text" class="form-control" id="qty" name="qty">
+                    <input type="text" class="form-control" id="pesan" name="pesan">
                 </div>
                 <div class="mb-3">
                     <label class="col-form-label fw-bold text-dark">No. Handphone</label>
-                    <input type="text" class="form-control" id="qty" name="qty">
+                    <input type="text" class="form-control" id="no" name="no">
                 </div>
                 <form>
                 <div class="mb-3">
@@ -440,6 +425,9 @@
                 </form>
            </div>
         </div>
+        <?php
+                            }
+                            ?> 
       </div>
     </div> 
   </div>
