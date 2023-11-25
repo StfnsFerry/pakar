@@ -136,8 +136,7 @@
             <?php
             }
           ?>
-          </div>
-          
+          </div>     
           <a href="">
             <button type="button" class="btn btn-outline-dark collec">
               See Collections <i class="bx bx-chevron-right mb-0 ms-1"></i>
