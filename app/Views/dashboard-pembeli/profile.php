@@ -131,7 +131,7 @@
                     cellspacing="0">
                 <tr>
                     <td><b>Username</b></td>
-                    <td> ainaa</td>
+                    <td> <?= user()->username;?></td>
                 </tr>
                 <tr>
                     <td><b>Nama Lengkap</b></td>
@@ -143,7 +143,7 @@
                 </tr>
                 <tr>
                     <td><b>Email</b></td>
-                    <td> ina@gmail.com</td>
+                    <td> <?= user()->email;?></td>
                 </tr>
                 <tr>
                     <td><b>Alamat</b></td>

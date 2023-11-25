@@ -203,14 +203,6 @@
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Profile
                   </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Settings
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Activity Log
-                  </a>
                   <div class="dropdown-divider"></div>
                   <a
                     class="dropdown-item"
@@ -256,7 +248,7 @@
                       <div
                           class="text-xs font-weight-bold text-dark text-uppercase mb-1"
                         >
-                          Barang Dalam Keranjang
+                          Produk Dalam Keranjang
                         </div>
                        <div class="h5 mb-0 font-weight-bold text-gray-800">3</div>
                          
@@ -360,7 +352,7 @@
                                 <tr>
                                 <th>No</th>
                                 <th>Id Pesanan</th>
-                                <th>Deskripsi</th>
+                                <th>Nama Produk</th>
                                 <th>Harga</th>
                                 <th>Ukuran</th>
                                </tr>
@@ -433,7 +425,7 @@
                                 <tr>
                                 <th>No</th>
                                 <th>Id Pesanan</th>
-                                <th>Barang</th>
+                                <th>Nama Produk</th>
                                 <th>Harga</th>
                                 <th>Ukuran</th>
                                 <th>Kuantitas</th>
@@ -521,7 +513,7 @@
                                     <th>No.</th>
                                     <th>ID Transaksi</th>  
                                     <th>Nama Toko</th>
-                                    <th>Nama Barang</th> 
+                                    <th>Nama Produk</th> 
                                     <th>Kuantitas</th>
                                     <th>Jenis Pengembalian</th>
                                     <th>Status</th>

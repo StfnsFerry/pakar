@@ -3,9 +3,19 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\ProdukModel;
+use App\Models\UserModel;
 
 class Pembeli extends BaseController
 {
+    public $produkModel;
+    public $userModel;
+
+    public function __construct()
+    {
+        $this->produkModel = new ProdukModel();
+        $this->userModel = new UserModel();
+    }
     public function user()
     {
         return view('dashboard-pembeli/index');
@@ -13,7 +23,13 @@ class Pembeli extends BaseController
 
     public function keranjang()
     {
-        return view('dashboard-pembeli/keranjang');
+        $produk = $this->produkModel->getProduk();
+
+        $data  = [
+            'title' => 'keranjang',
+            'produk' => $produk,
+        ];
+        return view('dashboard-pembeli/keranjang', $data);
     }
 
     public function pemesanan()
