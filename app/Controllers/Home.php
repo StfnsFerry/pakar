@@ -52,16 +52,20 @@ class Home extends BaseController
         return view('landing-page/shop', $data);
     }
 
-
-    public function collection(): string
+    public function collection()
     {
-        return view('landing-page/collection');
+        $produk = $this->produkModel->getRandProduk();
+        $item = $this->produkModel->getAllProduk();
+
+        $data = [
+            'produk' => $produk,
+            'item' => $item
+        ];
+
+        return view('landing-page/collection',$data);
     }
 
-    public function login(): string
-
     public function login() 
-
     {
         return view('auth/login');
     }
