@@ -64,30 +64,20 @@
             <h4>Best of Air Max</h4>
           </div>
           <div class="wrapper-new">
+            <?php foreach ($produk as $produk){
+
+            ?>
               <div class="product-box" id="box">
                 <a href="">
-                  <img src="<?=base_url('assets/img/Air Jordan 1 Mid SE Craft.jpg')?>" class="product-img">
+                  <img src="<?= $produk['foto']?>" class="product-img">
                 </a>
-                <h2 class="product-title">Air Jordan 1 Mid SE Craft</h2>
-                <span class="price">$100</span>
+                <h2 class="product-title"><?= $produk['nama_produk']?></h2>
+                <span class="price">Rp <?= number_format($produk['harga'],0,',','.')?></span>
                 <i class="bx bx-shopping-bag add-cart"></i>
               </div>
-              <div class="product-box" id="box">
-                    <a href="">
-                      <img src="<?=base_url('assets/img/Air Jordan 1 Mid SE Craft.jpg')?>" class="product-img">
-                    </a>
-                    <h2 class="product-title">Air Jordan 1 Mid SE Craft</h2>
-                    <span class="price">$100</span>
-                    <i class="bx bx-shopping-bag add-cart"></i>
-                </div>
-                <div class="product-box" id="box">
-                    <a href="">
-                      <img src="<?=base_url('assets/img/Air Jordan 1 Mid SE Craft.jpg')?>" class="product-img">
-                    </a>
-                    <h2 class="product-title">Air Jordan 1 Mid SE Craft</h2>
-                    <span class="price">$100</span>
-                    <i class="bx bx-shopping-bag add-cart"></i>
-                </div>
+              <?php
+              }
+            ?>
           </div>
         </div>
       </div>
@@ -132,34 +122,23 @@
               pair.
             </p>
           </div>
-          <div class="shop-content">
-             <div class="product-box" id="box">
-                    <a href="">
-                      <img src="<?=base_url('assets/img/Air Jordan 1 Mid SE Craft.jpg')?>" class="product-img">
-                    </a>
-                    <h2 class="product-title">Air Jordan 1 Mid SE Craft</h2>
-                    <span class="price">$100</span>
-                    <i class="bx bx-shopping-bag add-cart"></i>
-                </div>
-                <div class="product-box" id="box">
-                    <a href="">
-                      <img src="<?=base_url('assets/img/Air Jordan 1 Mid SE Craft.jpg')?>" class="product-img">
-                    </a>
-                    <h2 class="product-title">Air Jordan 1 Mid SE Craft</h2>
-                    <span class="price">$100</span>
-                    <i class="bx bx-shopping-bag add-cart"></i>
-                </div>
-                <div class="product-box" id="box">
-                    <a href="">
-                      <img src="<?=base_url('assets/img/Air Jordan 1 Mid SE Craft.jpg')?>" class="product-img">
-                    </a>
-                    <h2 class="product-title">Air Jordan 1 Mid SE Craft</h2>
-                    <span class="price">$100</span>
-                    <i class="bx bx-shopping-bag add-cart"></i>
-                </div>
+          <div class="wrapper-new">
+          <?php foreach ($item as $item){
+          ?>
+            <div class="product-box" id="box_<?= $item['id']?>">
+              <a href="">
+                <img src="<?= $item['foto']?>" class="product-img">
+              </a>
+              <h2 class="product-title"><?= $item['nama_produk']?></h2>
+              <span class="price">Rp <?= number_format($item['harga'],0,',','.')?></span>
+              <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+            <?php
+            }
+          ?>
           </div>
           
-          <a href="collection.php">
+          <a href="">
             <button type="button" class="btn btn-outline-dark collec">
               See Collections <i class="bx bx-chevron-right mb-0 ms-1"></i>
             </button>

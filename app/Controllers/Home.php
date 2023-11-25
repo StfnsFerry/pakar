@@ -1,23 +1,57 @@
 <?php
 
 namespace App\Controllers;
+use App\Controllers\BaseController;
+use App\Models\ProdukModel;
+use App\Models\SellerModel;
 
 class Home extends BaseController
 {
-    public function index(): string
+
+    public $produkModel;
+    public $sellerModel;
+
+    public function __construct()
     {
-        return view('landing-page/home');
+        $this->produkModel = new ProdukModel();
+        $this->sellerModel = new SellerModel();
+    }
+    
+    public function index()
+    {
+        $produk = $this->produkModel->getRandProduk();
+
+        $data = [
+            'produk' => $produk,
+        ];
+        return view('landing-page/home', $data);
     }
 
-    public function newarrival(): string
+    public function newarrival()
     {
-        return view('landing-page/new_arrival');
+        $produk = $this->produkModel->getRandProduk();
+        $item = $this->produkModel->getAllProduk();
+
+        $data = [
+            'produk' => $produk,
+            'item' => $item
+        ];
+
+        return view('landing-page/new_arrival', $data);
     }
 
-    public function shop(): string
+    public function shop() 
     {
-        return view('landing-page/shop');
+
+        $data['toko'] = $this->sellerModel->getSeller();
+
+        foreach ($data['toko'] as $toko) {
+            $data['produk'][$toko['id']] = $this->produkModel->where('id_toko', $toko['id'])->orderBy('RAND()')->limit(4)->find();
+        }
+
+        return view('landing-page/shop', $data);
     }
+
 
     public function collection(): string
     {
@@ -25,12 +59,20 @@ class Home extends BaseController
     }
 
     public function login(): string
+
+    public function login() 
+
     {
         return view('auth/login');
     }
 
-    public function register(): string
+    public function register() 
     {
         return view('auth/register');
+    }
+
+    public function registerSeller() 
+    {
+        return view('auth/register_seller');
     }
 }

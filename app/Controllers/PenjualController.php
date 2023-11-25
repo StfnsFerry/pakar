@@ -27,10 +27,12 @@ class PenjualController extends BaseController
 
     public function produk()
     {
+        $user_id = user()->id;
         $produk = $this->produkModel->getProduk();
 
         $data  = [
             'title' => 'Sneakers - Seller',
+            'user_id' => $user_id,
             'produk' => $produk,
             'validation' => \Config\Services::validation()
         ];
@@ -50,6 +52,9 @@ class PenjualController extends BaseController
                 'errors' => [
                     'required' => '{field} nama produk harus di isi'
                 ]
+            ],
+            'id_toko' => [
+                'rules' => 'required',
             ],
             'deskripsi' => [
                 'rules' => 'required',
@@ -85,6 +90,7 @@ class PenjualController extends BaseController
 
         $this->produkModel->saveProduk([
             'nama_produk' => $this->request->getVar('nama_produk'),
+            'id_toko' => $this->request->getVar('id_toko'),
             'deskripsi' => $this->request->getVar('deskripsi'),
             'harga' => $this->request->getVar('harga'),
             'stok' => $this->request->getVar('stok'),
