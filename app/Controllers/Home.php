@@ -52,7 +52,16 @@ class Home extends BaseController
         return view('landing-page/shop', $data);
     }
 
+
+    public function collection(): string
+    {
+        return view('landing-page/collection');
+    }
+
+    public function login(): string
+
     public function login() 
+
     {
         return view('auth/login');
     }

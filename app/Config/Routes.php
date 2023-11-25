@@ -16,8 +16,11 @@ $routes->get('/', 'Home::index');
 $routes->get('/home', 'Home::index');
 $routes->get('/newarrival', 'Home::newarrival');   
 $routes->get('/shop', 'Home::shop');   
+
+$routes->get('/collection', 'Home::collection');
+
 $routes->get('/collection', 'Home::collection');     
- 
+
 
 
 $routes->get('/admin', [AdminController::class, 'index'], ['filter' => 'role:admin']);

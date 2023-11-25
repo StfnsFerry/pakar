@@ -28,7 +28,7 @@
         <li><a href="<?= base_url('/home')?>">HOME</a></li>
         <li><a href="<?= base_url('/newarrival')?>">NEW ARRIVALS</a></li>
         <li><a href="<?= base_url('/shop')?>">SHOP</a></li>
-        <li><a href="">COLLECTION</a></li>
+        <li><a href="<?= base_url('/collection')?>">COLLECTION</a></li>
       </ul>
 
       <div class="nav-icon">
