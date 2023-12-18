@@ -29,6 +29,7 @@
         <li><a href="<?= base_url('/newarrival')?>">NEW ARRIVALS</a></li>
         <li><a href="<?= base_url('/shop')?>">SHOP</a></li>
         <li><a href="<?= base_url('/collection')?>">COLLECTION</a></li>
+        <li><a href="<?= base_url('/recommendation')?>">RECOMMENDATION</a></li>
       </ul>
 
       <div class="nav-icon">
@@ -53,7 +54,7 @@
           >
             <div class="dropdown-header">Pilih:</div>
             <?php if (logged_in()) : ?>
-              <a class="dropdown-item" href="">Profile</a>
+              <a class="dropdown-item" href=""><?= user()->username?></a>
               <li><hr class="dropdown-divider"></li>
               <a class="dropdown-item" href="/logout">Logout</a>  
             <?php else : ?>

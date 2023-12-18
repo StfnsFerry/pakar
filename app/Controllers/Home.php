@@ -4,17 +4,20 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\ProdukModel;
 use App\Models\SellerModel;
+use App\Models\PesananModel;
 
 class Home extends BaseController
 {
 
     public $produkModel;
     public $sellerModel;
+    public $pesananModel;
 
     public function __construct()
     {
         $this->produkModel = new ProdukModel();
         $this->sellerModel = new SellerModel();
+        $this->pesananModel = new PesananModel();
     }
     
     public function index()
@@ -41,6 +44,10 @@ class Home extends BaseController
             ];
             return view('landing-page/home', $data);
         }
+    }
+
+    Public function recommendation(){
+        return view ('landing-page/recommendation');
     }
 
     public function newarrival()
@@ -96,16 +103,64 @@ class Home extends BaseController
 
     public function checkoutProduk($id)
     {
-        $produk = $this->produkModel->getAllProduk($id);
-        $item = $this->produkModel->getRandProduk();
+        $produk = $this->produkModel->getAllProduk($id);   
 
         $data = [
             'produk' => $produk,
-            'item' => $item
         ];
 
         return view('landing-page/checkout',$data);
     }
+
+    public function paymentProduk($id)
+    {
+        $produk = $this->produkModel->getAllProduk($id);   
+        $banyak_barang = $this->request->getVar('banyak_barang');
+        if($produk['stok'] < $banyak_barang){
+            return redirect()->to(base_url('/checkout/'. $id))->withInput();
+        }
+        $data = [
+            'produk' => $produk,
+            'nama_penerima' => $this->request->getVar('nama_penerima'),
+            'alamat' => $this->request->getVar('alamat'),
+            'telepon' => $this->request->getVar('telepon'),
+            'banyak_barang' => $banyak_barang,
+        ];
+
+        return view('landing-page/payment',$data);
+    }
+
+    public function transaksiProduk($id)
+    {
+        $produk = $this->produkModel->getAllProduk($id);   
+        $banyak_barang = $this->request->getVar('banyak_barang');
+
+        if($produk['stok'] < $banyak_barang){
+            return redirect()->to(base_url('/checkout/'. $id))->withInput();
+        }else{
+            $newStock = $produk['stok'] - $banyak_barang;
+            $this->produkModel->update($id, ['stok' => $newStock]);
+
+            $data =[
+                'id_toko' => $this->request->getVar('id_toko'),
+                'id_produk' => $this->request->getVar('id_produk'),
+                'id_pembeli' => $this->request->getVar('id_pembeli'),
+                'nama_penerima' => $this->request->getVar('nama_penerima'),
+                'alamat' => $this->request->getVar('alamat'),
+                'telepon' => $this->request->getVar('telepon'),
+                'banyak_barang' => $banyak_barang,
+                'kurir' => $this->request->getVar('kurir'),
+                'pembayaran' => $this->request->getVar('pembayaran'),
+                'total_harga' => $this->request->getVar('total_harga'),
+            ];
+
+            $result = $this->pesananModel->saveTransaksi($data);
+
+            return redirect()->to(base_url('/shop'));
+        }
+
+    }
+    
 
     public function login() 
     {

@@ -12,13 +12,16 @@ use Config\Auth;
  * @var RouteCollection $routes
  */
 
-$routes->get('/', 'Home::index'); 
+$routes->get('/', 'Home::index');
+$routes->get('/recommendation', 'Home::recommendation'); 
 $routes->get('/home', 'Home::index');
 $routes->get('/newarrival', 'Home::newarrival');   
 $routes->get('/shop', 'Home::shop');   
 $routes->get('/collection', 'Home::collection');
-$routes->get('/detail-produk/(:any)', 'Home::detailProduk/$1');
-$routes->get('/checkout/(:any)', 'Home::checkoutProduk/$1');
+$routes->get('/detail-produk/(:any)', 'Home::detailProduk/$1',['filter' => 'login']);
+$routes->get('/checkout/(:any)', 'Home::checkoutProduk/$1',['filter' => 'login']);
+$routes->post('/payment/(:any)', 'Home::paymentProduk/$1',['filter' => 'login']);
+$routes->post('/transaksi/(:any)', 'Home::transaksiProduk/$1',['filter' => 'login']);
    
 $routes->get('/admin', [AdminController::class, 'index'], ['filter' => 'role:admin']);
 $routes->get('/admin/index', [AdminController::class, 'index'], ['filter' => 'role:admin']);

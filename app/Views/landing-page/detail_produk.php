@@ -26,6 +26,7 @@
                 <div class="desc-produk">
                   <h1><?=$produk['nama_produk']?></h1>
                   <span>Rp <?= number_format($produk['harga'],0,',','.')?></span>
+                  <p class="mb-1 mt-1">Stock : <?= $produk['stok']?></p>
                   <p>
                   <?=$produk['deskripsi']?>
                   </p>

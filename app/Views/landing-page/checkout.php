@@ -15,17 +15,19 @@
           <div class="row mt-5">
             <div class="col-6 deliver">
               <div class="form-pengiriman">
-                <form action="" method="POST">
+                <form action="/payment/<?=$produk['id']?>" method="POST">
+                <input type="hidden" name="id_produk" value="<?= $produk['id']?>">
                   <h1 class="mb-4">Enter your name and address:</h1>
 
                   <div class="input-box">
                     <input
                       type="text"
-                      name="nama"
+                      name="nama_penerima"
                       placeholder="Name"
                       required
                     />
                   </div>
+                  
                   <div class="input-box">
                     <input
                       type="text"
@@ -34,56 +36,45 @@
                       required
                     />
                   </div>
-                  <div class="input-box">
-                    <input
-                      type="text"
-                      name="no_hp"
-                      placeholder="Phone Number"
-                      required
-                    />
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="input-box">
+                        <input
+                          type="text"
+                          name="telepon"
+                          placeholder="Phone Number"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="input-box">
+                        <input
+                          type="number"
+                          name="banyak_barang"
+                          placeholder="Quantity"
+                          required
+                        />
+                      </div>
+                    </div>
                   </div>
                   <div class="add-to">
-                    <a href="">
-                        <button class="btn btn-outline-dark fav">Continue</button>
-                    </a>
+                        <button type="submit" class="btn btn-outline-dark fav">Continue</button>
                   </div>     
                 </form>
               </div>
             </div>
             <div class="col-6 deliver">
               <div class="order-sum">
-                <h1 class="mb-4">Order Summary</h1>
-                <div class="subtotal d-flex justify-content-between">
-                  <p class="text">Subtotal</p>
-                  <p class="text">Rp <?= number_format($produk['harga'],0,',','.')?></p>
-                </div>
-                <div class="delivery d-flex justify-content-between">
-                  <p class="text mb-0">Delivery/Shipping</p>
-                  <p class="text mb-0">Rp 20.000</p>
-                </div>
-                <hr />
-                <div class="total d-flex justify-content-between">
-                  <p class="mb-0 fw-bold">Total</p>
-                  <p class="mb-0 fw-bold">Rp <?= number_format($produk['harga']+20000,0,',','.')?></p>
-                </div>
-                <hr />
-                <div class="notes w-100 mt-4 mb-4">
-                  <p class="mb-0">
-                    (The total reflects the price of your order, including all
-                    duties and taxes)
-                  </p>
-                </div>
-
-                <h1 class="mb-3">Arrives Mon, 27 Mar - Wed, 12 Apr</h1>
-
+                <h1 class="mb-4">Product Checkout</h1>
                 <div class="prod-det d-flex">
                   <div class="img">
                     <img src="<?= $produk['foto']?>"/>
                   </div>
                   <div class="desc p-4">
                     <p class="text mb-1 fw-bold"><?= $produk['nama_produk']?></p>
-                    <p class="text mb-1">Qty 1</p>
                     <p class="text mb-1">Rp <?= number_format($produk['harga'],0,',','.')?></p>
+                    <p class="text mb-1">Stock : <?= $produk['stok']?></p>
                   </div>
                 </div>
               </div>
